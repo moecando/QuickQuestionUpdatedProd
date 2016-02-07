@@ -1,0 +1,16 @@
+
+
+1. test voting--Y
+
+2. test creating a question--Y
+
+3. test editing a question--Y
+
+4. test sharing via email--Y
+
+5. test post on FB--Y
+
+6. test deleting question---Y
+
+7. test can't edit published question---Y
+

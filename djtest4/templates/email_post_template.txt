@@ -1,0 +1,14 @@
+{% autoescape off %}
+
+You have a received a request to answer a quick question from {{current_user.first_name}} {{current_user.last_name}}.
+
+{{current_user.first_name}} says,
+
+{{email_msg_body}}
+
+{{theQuestion.qtext}}
+
+Please click one of the links below:
+
+{% for ans in theAnswers %}{{ans.ans_text}}: {{ans.shortcut_url}}
+{% endfor %}{% endautoescape %}

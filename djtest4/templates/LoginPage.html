@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block css_code %}
+
+{{super}}
+
+.inner_content
+{
+	padding-left:40px;
+	width:960px;
+}
+
+#banner
+
+{
+	/*margin: 0px auto;*/
+	padding-left:200px;
+	width:500px;
+	font-famiy: "times-new-roman", serif;
+	color:#636964;
+	color:black;
+}
+
+#banner h3 { color:rgb(90, 86, 86); }
+
+#LoginMessage
+{
+	width:500px;
+	/*margin: 0px auto;*/
+	padding-left:200px;
+}
+
+.subtle_text
+{
+	font-style:italic;
+}
+
+h4 {
+	display:inline;
+	font-size:1.1em;
+	
+}
+
+#facebook_login_redirect
+
+{
+	padding-top:25px;
+	margin:0px auto;
+	width:265px;
+}
+
+#facebook_login_redirect input
+{
+	height:35px;
+	
+}
+
+#main_wrapper
+
+{
+	color:gray;
+}
+
+{% endblock %}
+
+{% block main_content %}
+
+{% if not user.is_authenticated %}
+        
+        <br/>
+        <br/>
+        <div class="inner_content">
+            
+            <div id="banner"><h1>Welcome to Quick Question!</h1>
+            <h3>We help you ask a single, important question using Facebook and email. To answer, your users click a single link. POOF! </h3></div>
+            <br/>
+                    <div id="LoginMessage">
+            <!--form to call registration via facebook -->
+            <form action="{% url 'facebook_connect' %}" method="post">
+                <h4>Please login with Facebook. </h4>
+                <span class="subtle_text">you must have a facebook account to use quick question. <span style="""> please authorize us to access your facebook information.<br><br> <b>To test the app, you may use a demo Facebook account kwikqwestion@gmail.com </b><br><br> Use password is the last name of the 1st president of the US, followed by the year of the Declaration of Independance and an exclamation mark. </span></span>
+                <br />
+                {% csrf_token %}
+                <input type="hidden" value="{{ request.path }}" name="next" />
+                
+                <!--
+                use error next for a seperate error page
+                <input type="hidden" value="/error/" name="error_next" />
+                -->
+                
+                <div id="facebook_login_redirect">
+                    <input type="image" src="/static/images/b_signin_facebook_small.png" /><br />
+                   
+                </div>
+            </form>
+            
+          
+            
+        </div>
+            </div>
+        {% endif %}
+            
+            
+            {% if user.is_authenticated %}
+            <h1>Welcome {{ user }}</h1><a href="{% url 'auth_logout' %}?next={{ request.path|urlencode }}">logout</a><br />
+            
+            <p>
+            Thank you for logging in with Facebook.
+            By default you will have the following data available:
+            
+            {% for q in questions %}
+            {{q.qtext}}
+            
+            {% endfor %}
+            </p>
+            
+            <table id="rounded-corner">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>First Name:</td><td>{{ user.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td><td>{{ user.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Gender:</td><td>{{ user.profile_or_self.gender }}</td>
+                </tr>
+                <tr>
+                    <td>About me:</td><td>{{ user.profile_or_self.about_me }}</td>
+                </tr>
+                <tr>
+                    <td>Facebook profile url:</td><td>{{ user.profile_or_self.facebook_profile_url }}</td>
+                </tr>
+                <tr>
+                    <td>Facebook ID:</td><td>{{ user.profile_or_self.facebook_id }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td><td>{{ user.profile_or_self.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <td>Website Url:</td><td>{{ user.profile_or_self.website_url }}</td>
+                </tr>
+                <tr>
+                    <td>Local Image:</td><td><img src="{{ user.profile_or_self.image.url }}" title="local copy" /></td>
+                </tr>
+                <tr>
+                    <td>Hotlinked Image:</td><td><img src="http://graph.facebook.com/{{ user.profile_or_self.facebook_id }}/picture?type=large" title="facebook stored image" /><br /></td>
+                </tr>
+                <tr>
+                    <td>Likes:</td>
+                    <td>
+                        <ul>
+                        {% for like in user.profile_or_self.likes|slice:":5" %}
+                            <li>{{ like.name }}</li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Friends:</td>
+                    <td>
+                        <ul>
+                        {% for friend in user.profile_or_self.friends|slice:":5" %}
+                            <li>{{ friend.name }}</li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Getting More:</td><td>Facebook has a ton more data, read about it <a href="https://developers.facebook.com/docs/reference/api/">here</a>.</td>
+                </tr>
+            </table>
+            
+            {% endif %}
+
+
+
+{% endblock %}

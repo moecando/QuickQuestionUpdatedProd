@@ -1,0 +1,95 @@
+BEGIN;
+CREATE TABLE "MultipleChoice_multiplechoicesurvey" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "create_date" timestamp with time zone NOT NULL,
+    "author_id" integer NOT NULL REFERENCES "django_facebook_facebookcustomuser" ("id") DEFERRABLE INITIALLY DEFERRED
+)
+;
+CREATE TABLE "MultipleChoice_multiplechoicequestion" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "qtext" varchar(500) NOT NULL,
+    "linked_survey_id" integer NOT NULL REFERENCES "MultipleChoice_multiplechoicesurvey" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "slug" varchar(50) NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_multiplechoiceansweritem" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "linked_question_id" integer NOT NULL REFERENCES "MultipleChoice_multiplechoicequestion" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "ans_text" text NOT NULL,
+    "slug" varchar(50) NOT NULL,
+    "shortcut_url" varchar(200) NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_publishing" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "publish_date" timestamp with time zone NOT NULL,
+    "linked_survey_id" integer NOT NULL REFERENCES "MultipleChoice_multiplechoicesurvey" ("id") DEFERRABLE INITIALLY DEFERRED
+)
+;
+CREATE TABLE "MultipleChoice_facebookpublishing" (
+    "publishing_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "MultipleChoice_publishing" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "dummy_field" varchar(15) NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_urlpublishing" (
+    "publishing_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "MultipleChoice_publishing" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "publish_url" varchar(200) NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_emailcontact" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "email_address" varchar(75) NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_emaillist_list_of_addresses" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "emaillist_id" integer NOT NULL,
+    "emailcontact_id" integer NOT NULL REFERENCES "MultipleChoice_emailcontact" ("id") DEFERRABLE INITIALLY DEFERRED,
+    UNIQUE ("emaillist_id", "emailcontact_id")
+)
+;
+CREATE TABLE "MultipleChoice_emaillist" (
+    "id" serial NOT NULL PRIMARY KEY
+)
+;
+ALTER TABLE "MultipleChoice_emaillist_list_of_addresses" ADD CONSTRAINT "emaillist_id_refs_id_96e8a159" FOREIGN KEY ("emaillist_id") REFERENCES "MultipleChoice_emaillist" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE TABLE "MultipleChoice_emailpublishing" (
+    "publishing_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "MultipleChoice_publishing" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "linked_email_list_id" integer NOT NULL UNIQUE REFERENCES "MultipleChoice_emaillist" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "email_msg_body" text NOT NULL,
+    "subject_line" varchar(250) NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_multiplechoiceresponse" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "last_name" varchar(100) NOT NULL,
+    "first_and_middle" varchar(100) NOT NULL,
+    "ip_address" inet NOT NULL,
+    "response_time" timestamp with time zone NOT NULL
+)
+;
+CREATE TABLE "MultipleChoice_multiplechoicepostedanswer" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "linked_answer_id" integer NOT NULL REFERENCES "MultipleChoice_multiplechoiceansweritem" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "linked_response_id" integer NOT NULL REFERENCES "MultipleChoice_multiplechoiceresponse" ("id") DEFERRABLE INITIALLY DEFERRED
+)
+;
+CREATE TABLE "MultipleChoice_userprofile" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "linked_user_id" integer NOT NULL REFERENCES "django_facebook_facebookcustomuser" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "working_email" varchar(75) NOT NULL
+)
+;
+CREATE INDEX "MultipleChoice_multiplechoicesurvey_author_id" ON "MultipleChoice_multiplechoicesurvey" ("author_id");
+CREATE INDEX "MultipleChoice_multiplechoicequestion_linked_survey_id" ON "MultipleChoice_multiplechoicequestion" ("linked_survey_id");
+CREATE INDEX "MultipleChoice_multiplechoicequestion_slug" ON "MultipleChoice_multiplechoicequestion" ("slug");
+CREATE INDEX "MultipleChoice_multiplechoicequestion_slug_like" ON "MultipleChoice_multiplechoicequestion" ("slug" varchar_pattern_ops);
+CREATE INDEX "MultipleChoice_multiplechoiceansweritem_linked_question_id" ON "MultipleChoice_multiplechoiceansweritem" ("linked_question_id");
+CREATE INDEX "MultipleChoice_multiplechoiceansweritem_slug" ON "MultipleChoice_multiplechoiceansweritem" ("slug");
+CREATE INDEX "MultipleChoice_multiplechoiceansweritem_slug_like" ON "MultipleChoice_multiplechoiceansweritem" ("slug" varchar_pattern_ops);
+CREATE INDEX "MultipleChoice_publishing_linked_survey_id" ON "MultipleChoice_publishing" ("linked_survey_id");
+CREATE INDEX "MultipleChoice_multiplechoicepostedanswer_linked_answer_id" ON "MultipleChoice_multiplechoicepostedanswer" ("linked_answer_id");
+CREATE INDEX "MultipleChoice_multiplechoicepostedanswer_linked_response_id" ON "MultipleChoice_multiplechoicepostedanswer" ("linked_response_id");
+CREATE INDEX "MultipleChoice_userprofile_linked_user_id" ON "MultipleChoice_userprofile" ("linked_user_id");
+
+COMMIT;

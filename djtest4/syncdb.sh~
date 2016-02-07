@@ -1,0 +1,9 @@
+python ..\manage.py syncdb < answers.txt
+
+rm MultipleChoice/migrations/[^_]*.py
+
+python ..\manage.py schemamigration MultipleChoice --initial
+
+python ..\manage.py  migrate MultipleChoice
+
+

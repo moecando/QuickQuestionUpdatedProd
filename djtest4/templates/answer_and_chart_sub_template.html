@@ -1,0 +1,74 @@
+<div id="answer_wrapper">
+            <div class="title_style" >{% if is_published %} Results: {% else %} Possible answers: {% endif %} {% if is_published %}<span class="advisory_text darker_gray">(<span style="font-style:normal"></span>{{total_votes}} {% if total_votes == 1 %} vote {% else %} votes {% endif %}  total<span style="font-style:normal"></span>)</span>{%endif%}</div>
+            
+            
+            <div id="answer_sub_wrapper">
+            <table id="id_orders_table" class="results_table" border="0">
+                <thead>
+                  
+                </thead>
+                <tbody>
+                    {% for ans in answers %}
+                    <tr >
+                        <td>
+                            <div class="ans_box"> <div class="ans_span" >{{ans.ans_text}} </div> </div>
+                        </td>
+                        
+                        
+                        <td>
+                        	<div class="votes_box">{% if is_published %} <strong> {{ans.vote_count }}  {% if ans.vote_count == 1 %} vote {% else %} votes {% endif %} </strong> so far. {% endif %} </div>
+                        </td>
+                        
+                    </tr>
+                      {% endfor %}
+                  
+                </tbody>
+            </table>
+            <br/>
+            
+                
+            
+            
+            </div>
+     
+	
+		   <form method="post" action="{% url 'PublishQuestionToFacebook' question.slug %}" style="display:none">
+        {% csrf_token %}
+            <input type="submit" id="publish_btn" name="PublishToFB"  value="Post To Facebook"> </input>
+		    
+        </form>
+         
+<div id="dialog-modal-share_results" class = "dialog-modal" title = "Share Results:" style="display:none;">
+
+Where do you want to send the results of this survey?
+<form method="post" action="{% url 'PostResultsToFacebook' question.slug %}" style="display:none">
+{%csrf_token%}
+<input type="submit" id="share_results_facebook_btn" text="Post to Facebook"/>
+</form>
+
+</div>
+         
+<div id="dialog-share-via-email" class = "dialog-modal" title="Please confirm:" style="display:none">
+  <p style=""></p>
+
+           <form method="post" action="" style="display:none">
+        {% csrf_token %}
+            <input type="submit" id="email_btn" class="button" name="PublishToEmail"  value="Share Via Email"> </input>
+		    emailform
+        </form>
+</div>         
+         
+         <form id="delete_form" method="POST" action="{% url 'DeleteQuestion' question.slug %}" style="display:none">
+         {% csrf_token %}
+        <input id="delete_btn" type="submit" value="  Delete  "/>
+        </form>
+    </div>
+      
+      
+      <div id="results_wrapper">
+        
+        <div id="results_data" style="display:none" data-votes="{{vote_tally}}" > </div>
+        <div id="results_chart"></div>        
+            
+  		
+            </div>

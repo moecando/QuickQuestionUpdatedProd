@@ -1,0 +1,46 @@
+- fields: {author: 2, create_date: !!timestamp '2013-11-13 16:49:35.625318'}
+  model: MultipleChoice.multiplechoicesurvey
+  pk: 1
+- fields: {author: 2, create_date: !!timestamp '2013-11-13 16:50:54.539880'}
+  model: MultipleChoice.multiplechoicesurvey
+  pk: 2
+- fields: {linked_survey: 1, qtext: 'Is this the first test question?', slug: is-this-the-first-test-question}
+  model: MultipleChoice.multiplechoicequestion
+  pk: 1
+- fields: {linked_survey: 2, qtext: 'is this the second test question?', slug: is-this-the-second-test-question}
+  model: MultipleChoice.multiplechoicequestion
+  pk: 2
+- fields: {ans_text: Answer one, linked_question: 1, shortcut_url: 'http://bit.ly/1eNuM8o',
+    slug: answer-one}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 1
+- fields: {ans_text: Answer two, linked_question: 1, shortcut_url: 'http://bit.ly/HNmUFI',
+    slug: answer-two}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 2
+- fields: {ans_text: Answer three, linked_question: 1, shortcut_url: 'http://bit.ly/HNmUFK',
+    slug: answer-three}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 3
+- fields: {ans_text: Answer four, linked_question: 1, shortcut_url: 'http://bit.ly/1eNuMoY',
+    slug: answer-four}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 4
+- fields: {ans_text: Answer A, linked_question: 2, shortcut_url: '', slug: answer-a}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 5
+- fields: {ans_text: Answer B, linked_question: 2, shortcut_url: '', slug: answer-b}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 6
+- fields: {ans_text: Answer C, linked_question: 2, shortcut_url: '', slug: answer-c}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 7
+- fields: {ans_text: Answer D, linked_question: 2, shortcut_url: '', slug: answer-d}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 8
+- fields: {linked_survey: 1, publish_date: !!timestamp '2013-11-13 16:50:17.573436'}
+  model: MultipleChoice.publishing
+  pk: 1
+- fields: {dummy_field: dummy_data, fb_post_id: ''}
+  model: MultipleChoice.facebookpublishing
+  pk: 1

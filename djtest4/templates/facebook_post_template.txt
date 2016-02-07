@@ -1,0 +1,4 @@
+{% autoescape off %}{{theQuestion.qtext}}
+
+{% for ans in theAnswers %}{{ans.ans_text}}: {{ans.shortcut_url}}
+{% endfor %}{% endautoescape %}

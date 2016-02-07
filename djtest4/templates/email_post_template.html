@@ -1,0 +1,33 @@
+
+<br/>
+<span style="padding-left:30px;  font-size:1.1em;"> <br/><br/>You have a received a request to answer a quick question from {{current_user.first_name}} {{current_user.last_name}}.
+<br/><br/></span>
+
+
+
+<table style="width:100%">
+<tr>
+<td style="width:10%"/>
+<td colspan=3>
+<span style="font-style:italic; font-weight:bold;">{{current_user.first_name}} says,<br/><br/> </span>
+<span> {{email_msg_body}}<br/> </span>
+</td>
+<td style="width:18%"/>
+</tr>
+</table>
+
+
+<table style="width:100%">
+<tr>
+<td style="width:10%"/>
+<td colspan=3 >
+<strong><h3 style="color:darkred">{{theQuestion.qtext}}</h3></strong>
+
+Please click one to answer:
+<br/>
+{% for ans in theAnswers %}<a href="{{ans.shortcut_url}}" style="font-size:1.2em"><br/>{{ans.ans_text}}</a>
+{% endfor %}
+</td>
+<td style="width:18%"/>
+</tr>
+</table>

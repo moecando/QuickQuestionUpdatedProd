@@ -1,0 +1,452 @@
+- fields: {app_label: auth, model: permission, name: permission}
+  model: contenttypes.contenttype
+  pk: 1
+- fields: {app_label: auth, model: group, name: group}
+  model: contenttypes.contenttype
+  pk: 2
+- fields: {app_label: contenttypes, model: contenttype, name: content type}
+  model: contenttypes.contenttype
+  pk: 3
+- fields: {app_label: sessions, model: session, name: session}
+  model: contenttypes.contenttype
+  pk: 4
+- fields: {app_label: sites, model: site, name: site}
+  model: contenttypes.contenttype
+  pk: 5
+- fields: {app_label: admin, model: logentry, name: log entry}
+  model: contenttypes.contenttype
+  pk: 6
+- fields: {app_label: MultipleChoice, model: multiplechoicesurvey, name: multiple
+      choice survey}
+  model: contenttypes.contenttype
+  pk: 7
+- fields: {app_label: MultipleChoice, model: multiplechoicequestion, name: multiple
+      choice question}
+  model: contenttypes.contenttype
+  pk: 8
+- fields: {app_label: MultipleChoice, model: multiplechoiceansweritem, name: multiple
+      choice answer item}
+  model: contenttypes.contenttype
+  pk: 9
+- fields: {app_label: MultipleChoice, model: publishing, name: publishing}
+  model: contenttypes.contenttype
+  pk: 10
+- fields: {app_label: MultipleChoice, model: facebookpublishing, name: facebook publishing}
+  model: contenttypes.contenttype
+  pk: 11
+- fields: {app_label: MultipleChoice, model: urlpublishing, name: url publishing}
+  model: contenttypes.contenttype
+  pk: 12
+- fields: {app_label: MultipleChoice, model: emailpublishing, name: email publishing}
+  model: contenttypes.contenttype
+  pk: 13
+- fields: {app_label: MultipleChoice, model: emaillist, name: email list}
+  model: contenttypes.contenttype
+  pk: 14
+- fields: {app_label: MultipleChoice, model: emailcontact, name: email contact}
+  model: contenttypes.contenttype
+  pk: 15
+- fields: {app_label: MultipleChoice, model: multiplechoiceresponse, name: multiple
+      choice response}
+  model: contenttypes.contenttype
+  pk: 16
+- fields: {app_label: MultipleChoice, model: multiplechoicepostedanswer, name: multiple
+      choice posted answer}
+  model: contenttypes.contenttype
+  pk: 17
+- fields: {app_label: MultipleChoice, model: userprofile, name: user profile}
+  model: contenttypes.contenttype
+  pk: 18
+- fields: {app_label: django_facebook, model: facebookuser, name: facebook user}
+  model: contenttypes.contenttype
+  pk: 19
+- fields: {app_label: django_facebook, model: facebooklike, name: facebook like}
+  model: contenttypes.contenttype
+  pk: 20
+- fields: {app_label: django_facebook, model: facebookprofile, name: facebook profile}
+  model: contenttypes.contenttype
+  pk: 21
+- fields: {app_label: django_facebook, model: facebookcustomuser, name: user}
+  model: contenttypes.contenttype
+  pk: 22
+- fields: {app_label: django_facebook, model: opengraphshare, name: open graph share}
+  model: contenttypes.contenttype
+  pk: 23
+- fields: {app_label: django_facebook, model: facebookinvite, name: facebook invite}
+  model: contenttypes.contenttype
+  pk: 24
+- fields: {expire_date: !!timestamp '2013-11-27 16:47:25.997399', session_data: MWE4MjZiYzE4ZDU0MzIzNTFjZGNiMmMxMDg3YTJjODkyNzljYzI4NTqAAn1xAS4=}
+  model: sessions.session
+  pk: ae99iqcqw25rerd0vlrm2pf5tofntkgt
+- fields: {expire_date: !!timestamp '2013-11-27 16:50:19.235199', session_data: OGQzOWQ3ZmEyODZhNjIyNDI1ZWVjMThkZGJhY2QyMjE5NDA3MGZmNjqAAn1xAShVBWdyYXBoY29wZW5fZmFjZWJvb2suYXBpCk9wZW5GYWNlYm9vawpxAimBcQN9cQQoVQxhY2Nlc3NfdG9rZW5xBVjGAAAAQ0FBSW9aQzdvMFpDWkNvQkFOYmxFakxZZUVQcGlId0g5WkJiTkZxcjhnWGNDNTd3Z3JxVTlROVJSQmRBdjNzVnpIR0JvOFJwNkdrUjNlenlDMk9UclJVWkI4dTA2MHJPTXpQRXRnVHZjblpDTlFuNXp1cFpCd01LUTM4MWRiTkNjMVlFc2xFcVhqQmJNMGRpOHJ0a3AzN1U2cEI3ZkhqZEkyWkNmWGpDd3g1Y1BrRjdMTkVTaFF1b3VVQzZYbkxteERJMFpEVQ9jdXJyZW50X3VzZXJfaWRxBooGGgTWnfNaVQdleHBpcmVzcQdYBwAAADUxODM5MjdVD3ByZWZldGNoZWRfZGF0YXEITnViVQ1fYXV0aF91c2VyX2lkSwJVEl9hdXRoX3VzZXJfYmFja2VuZFUtZGphbmdvX2ZhY2Vib29rLmF1dGhfYmFja2VuZHMuRmFjZWJvb2tCYWNrZW5kdS4=}
+  model: sessions.session
+  pk: ht34soxzyk7w931i50yt3ul4852rypzj
+- fields: {domain: example.com, name: example.com}
+  model: sites.site
+  pk: 1
+- fields: {linked_survey: 1, qtext: 'Is this the first test question?', slug: is-this-the-first-test-question}
+  model: MultipleChoice.multiplechoicequestion
+  pk: 1
+- fields: {linked_survey: 2, qtext: 'is this the second test question?', slug: is-this-the-second-test-question}
+  model: MultipleChoice.multiplechoicequestion
+  pk: 2
+- fields: {ans_text: Answer one, linked_question: 1, shortcut_url: 'http://bit.ly/1eNuM8o',
+    slug: answer-one}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 1
+- fields: {ans_text: Answer two, linked_question: 1, shortcut_url: 'http://bit.ly/HNmUFI',
+    slug: answer-two}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 2
+- fields: {ans_text: Answer three, linked_question: 1, shortcut_url: 'http://bit.ly/HNmUFK',
+    slug: answer-three}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 3
+- fields: {ans_text: Answer four, linked_question: 1, shortcut_url: 'http://bit.ly/1eNuMoY',
+    slug: answer-four}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 4
+- fields: {ans_text: Answer A, linked_question: 2, shortcut_url: '', slug: answer-a}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 5
+- fields: {ans_text: Answer B, linked_question: 2, shortcut_url: '', slug: answer-b}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 6
+- fields: {ans_text: Answer C, linked_question: 2, shortcut_url: '', slug: answer-c}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 7
+- fields: {ans_text: Answer D, linked_question: 2, shortcut_url: '', slug: answer-d}
+  model: MultipleChoice.multiplechoiceansweritem
+  pk: 8
+- fields: {linked_survey: 1, publish_date: !!timestamp '2013-11-13 16:50:17.573436'}
+  model: MultipleChoice.publishing
+  pk: 1
+- fields: {dummy_field: dummy_data, fb_post_id: ''}
+  model: MultipleChoice.facebookpublishing
+  pk: 1
+- fields: {codename: add_permission, content_type: 1, name: Can add permission}
+  model: auth.permission
+  pk: 1
+- fields: {codename: change_permission, content_type: 1, name: Can change permission}
+  model: auth.permission
+  pk: 2
+- fields: {codename: delete_permission, content_type: 1, name: Can delete permission}
+  model: auth.permission
+  pk: 3
+- fields: {codename: add_group, content_type: 2, name: Can add group}
+  model: auth.permission
+  pk: 4
+- fields: {codename: change_group, content_type: 2, name: Can change group}
+  model: auth.permission
+  pk: 5
+- fields: {codename: delete_group, content_type: 2, name: Can delete group}
+  model: auth.permission
+  pk: 6
+- fields: {codename: add_contenttype, content_type: 3, name: Can add content type}
+  model: auth.permission
+  pk: 7
+- fields: {codename: change_contenttype, content_type: 3, name: Can change content
+      type}
+  model: auth.permission
+  pk: 8
+- fields: {codename: delete_contenttype, content_type: 3, name: Can delete content
+      type}
+  model: auth.permission
+  pk: 9
+- fields: {codename: add_session, content_type: 4, name: Can add session}
+  model: auth.permission
+  pk: 10
+- fields: {codename: change_session, content_type: 4, name: Can change session}
+  model: auth.permission
+  pk: 11
+- fields: {codename: delete_session, content_type: 4, name: Can delete session}
+  model: auth.permission
+  pk: 12
+- fields: {codename: add_site, content_type: 5, name: Can add site}
+  model: auth.permission
+  pk: 13
+- fields: {codename: change_site, content_type: 5, name: Can change site}
+  model: auth.permission
+  pk: 14
+- fields: {codename: delete_site, content_type: 5, name: Can delete site}
+  model: auth.permission
+  pk: 15
+- fields: {codename: add_logentry, content_type: 6, name: Can add log entry}
+  model: auth.permission
+  pk: 16
+- fields: {codename: change_logentry, content_type: 6, name: Can change log entry}
+  model: auth.permission
+  pk: 17
+- fields: {codename: delete_logentry, content_type: 6, name: Can delete log entry}
+  model: auth.permission
+  pk: 18
+- fields: {codename: add_multiplechoicesurvey, content_type: 7, name: Can add multiple
+      choice survey}
+  model: auth.permission
+  pk: 19
+- fields: {codename: change_multiplechoicesurvey, content_type: 7, name: Can change
+      multiple choice survey}
+  model: auth.permission
+  pk: 20
+- fields: {codename: delete_multiplechoicesurvey, content_type: 7, name: Can delete
+      multiple choice survey}
+  model: auth.permission
+  pk: 21
+- fields: {codename: add_multiplechoicequestion, content_type: 8, name: Can add multiple
+      choice question}
+  model: auth.permission
+  pk: 22
+- fields: {codename: change_multiplechoicequestion, content_type: 8, name: Can change
+      multiple choice question}
+  model: auth.permission
+  pk: 23
+- fields: {codename: delete_multiplechoicequestion, content_type: 8, name: Can delete
+      multiple choice question}
+  model: auth.permission
+  pk: 24
+- fields: {codename: add_multiplechoiceansweritem, content_type: 9, name: Can add
+      multiple choice answer item}
+  model: auth.permission
+  pk: 25
+- fields: {codename: change_multiplechoiceansweritem, content_type: 9, name: Can change
+      multiple choice answer item}
+  model: auth.permission
+  pk: 26
+- fields: {codename: delete_multiplechoiceansweritem, content_type: 9, name: Can delete
+      multiple choice answer item}
+  model: auth.permission
+  pk: 27
+- fields: {codename: add_publishing, content_type: 10, name: Can add publishing}
+  model: auth.permission
+  pk: 28
+- fields: {codename: change_publishing, content_type: 10, name: Can change publishing}
+  model: auth.permission
+  pk: 29
+- fields: {codename: delete_publishing, content_type: 10, name: Can delete publishing}
+  model: auth.permission
+  pk: 30
+- fields: {codename: add_facebookpublishing, content_type: 11, name: Can add facebook
+      publishing}
+  model: auth.permission
+  pk: 31
+- fields: {codename: change_facebookpublishing, content_type: 11, name: Can change
+      facebook publishing}
+  model: auth.permission
+  pk: 32
+- fields: {codename: delete_facebookpublishing, content_type: 11, name: Can delete
+      facebook publishing}
+  model: auth.permission
+  pk: 33
+- fields: {codename: add_urlpublishing, content_type: 12, name: Can add url publishing}
+  model: auth.permission
+  pk: 34
+- fields: {codename: change_urlpublishing, content_type: 12, name: Can change url
+      publishing}
+  model: auth.permission
+  pk: 35
+- fields: {codename: delete_urlpublishing, content_type: 12, name: Can delete url
+      publishing}
+  model: auth.permission
+  pk: 36
+- fields: {codename: add_emailpublishing, content_type: 13, name: Can add email publishing}
+  model: auth.permission
+  pk: 37
+- fields: {codename: change_emailpublishing, content_type: 13, name: Can change email
+      publishing}
+  model: auth.permission
+  pk: 38
+- fields: {codename: delete_emailpublishing, content_type: 13, name: Can delete email
+      publishing}
+  model: auth.permission
+  pk: 39
+- fields: {codename: add_emaillist, content_type: 14, name: Can add email list}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_emaillist, content_type: 14, name: Can change email list}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_emaillist, content_type: 14, name: Can delete email list}
+  model: auth.permission
+  pk: 42
+- fields: {codename: add_emailcontact, content_type: 15, name: Can add email contact}
+  model: auth.permission
+  pk: 43
+- fields: {codename: change_emailcontact, content_type: 15, name: Can change email
+      contact}
+  model: auth.permission
+  pk: 44
+- fields: {codename: delete_emailcontact, content_type: 15, name: Can delete email
+      contact}
+  model: auth.permission
+  pk: 45
+- fields: {codename: add_multiplechoiceresponse, content_type: 16, name: Can add multiple
+      choice response}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_multiplechoiceresponse, content_type: 16, name: Can change
+      multiple choice response}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_multiplechoiceresponse, content_type: 16, name: Can delete
+      multiple choice response}
+  model: auth.permission
+  pk: 48
+- fields: {codename: add_multiplechoicepostedanswer, content_type: 17, name: Can add
+      multiple choice posted answer}
+  model: auth.permission
+  pk: 49
+- fields: {codename: change_multiplechoicepostedanswer, content_type: 17, name: Can
+      change multiple choice posted answer}
+  model: auth.permission
+  pk: 50
+- fields: {codename: delete_multiplechoicepostedanswer, content_type: 17, name: Can
+      delete multiple choice posted answer}
+  model: auth.permission
+  pk: 51
+- fields: {codename: add_userprofile, content_type: 18, name: Can add user profile}
+  model: auth.permission
+  pk: 52
+- fields: {codename: change_userprofile, content_type: 18, name: Can change user profile}
+  model: auth.permission
+  pk: 53
+- fields: {codename: delete_userprofile, content_type: 18, name: Can delete user profile}
+  model: auth.permission
+  pk: 54
+- fields: {codename: add_facebookuser, content_type: 19, name: Can add facebook user}
+  model: auth.permission
+  pk: 55
+- fields: {codename: change_facebookuser, content_type: 19, name: Can change facebook
+      user}
+  model: auth.permission
+  pk: 56
+- fields: {codename: delete_facebookuser, content_type: 19, name: Can delete facebook
+      user}
+  model: auth.permission
+  pk: 57
+- fields: {codename: add_facebooklike, content_type: 20, name: Can add facebook like}
+  model: auth.permission
+  pk: 58
+- fields: {codename: change_facebooklike, content_type: 20, name: Can change facebook
+      like}
+  model: auth.permission
+  pk: 59
+- fields: {codename: delete_facebooklike, content_type: 20, name: Can delete facebook
+      like}
+  model: auth.permission
+  pk: 60
+- fields: {codename: add_facebookprofile, content_type: 21, name: Can add facebook
+      profile}
+  model: auth.permission
+  pk: 61
+- fields: {codename: change_facebookprofile, content_type: 21, name: Can change facebook
+      profile}
+  model: auth.permission
+  pk: 62
+- fields: {codename: delete_facebookprofile, content_type: 21, name: Can delete facebook
+      profile}
+  model: auth.permission
+  pk: 63
+- fields: {codename: add_facebookcustomuser, content_type: 22, name: Can add user}
+  model: auth.permission
+  pk: 64
+- fields: {codename: change_facebookcustomuser, content_type: 22, name: Can change
+      user}
+  model: auth.permission
+  pk: 65
+- fields: {codename: delete_facebookcustomuser, content_type: 22, name: Can delete
+      user}
+  model: auth.permission
+  pk: 66
+- fields: {codename: add_opengraphshare, content_type: 23, name: Can add open graph
+      share}
+  model: auth.permission
+  pk: 67
+- fields: {codename: change_opengraphshare, content_type: 23, name: Can change open
+      graph share}
+  model: auth.permission
+  pk: 68
+- fields: {codename: delete_opengraphshare, content_type: 23, name: Can delete open
+      graph share}
+  model: auth.permission
+  pk: 69
+- fields: {codename: add_facebookinvite, content_type: 24, name: Can add facebook
+      invite}
+  model: auth.permission
+  pk: 70
+- fields: {codename: change_facebookinvite, content_type: 24, name: Can change facebook
+      invite}
+  model: auth.permission
+  pk: 71
+- fields: {codename: delete_facebookinvite, content_type: 24, name: Can delete facebook
+      invite}
+  model: auth.permission
+  pk: 72
+- fields:
+    about_me: null
+    access_token: null
+    blog_url: null
+    date_joined: 2013-11-13 16:44:49.652961
+    date_of_birth: null
+    email: blah@blah.com
+    facebook_id: null
+    facebook_name: null
+    facebook_open_graph: null
+    facebook_profile_url: null
+    first_name: ''
+    gender: null
+    groups: []
+    image: ''
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2013-11-13 16:44:49.652961
+    last_name: ''
+    new_token_required: false
+    password: pbkdf2_sha256$10000$B0Y8y0Qbbmal$EPzHTyWyj4KjceQMnWeS+TFAHqmLNGGHPv7ta81DNJg=
+    raw_data: null
+    state: null
+    user_permissions: []
+    username: mo
+    website_url: null
+  model: django_facebook.facebookcustomuser
+  pk: 1
+- fields:
+    about_me: null
+    access_token: CAAIoZC7o0ZCZCoBAFHP1NPCsJBH9JlIhLzMnrzHEZAQ1DmS3rv7ZAfiW5vMQenuIidJ98wFBAePUDNrLETm2lv7eXMAg9l6nAFfWKZBPyHixsmRQPZBHLOPb8oPRijZBO1W0RZCpRIW9cpYgeE3EI28o2LVao73huy8bWlBbCM41WqZCRUlH7aCuPw
+    blog_url: null
+    date_joined: 2013-11-13 16:49:05.703099
+    date_of_birth: 1980-01-01
+    email: pubmo1789@gmail.com
+    facebook_id: 100002371601434
+    facebook_name: Publiusmous Mousowsky
+    facebook_open_graph: null
+    facebook_profile_url: https://www.facebook.com/publiusmous.mousowsky
+    first_name: Publiusmous
+    gender: m
+    groups: []
+    image: images/facebook_profiles/2013/11/13/fb_image_None_16.jpg
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2013-11-13 16:49:06.420681
+    last_name: Mousowsky
+    new_token_required: false
+    password: pbkdf2_sha256$10000$ymFzYYBloppj$B1T0SceRiZkgovjm2Q0iMZR6nWcmtSlCfZCT5SDiCkc=
+    raw_data: '{"username": "publiusmous.mousowsky", "first_name": "Publiusmous",
+      "last_name": "Mousowsky", "name": "Publiusmous Mousowsky", "locale": "en_US",
+      "gender": "male", "image": "https://graph.facebook.com/me/picture?access_token=CAAIoZC7o0ZCZCoBAHQAYGNxzERdht5IpJQXrjRPSltjV2EaqeXFXZC86ZBx2M4v44fotpW515XA0gGUChorZANaKnol0jP3oQ1RQQ4cnntqBe65KKbiV1dnZBdv5F9ZAZC6SZCNk2O1qmWBqeGKeairkZA2vt1vomsaZBvjfOBZACWmvi30tSlQKeynHHw0cG8tmqq0kZD&type=large",
+      "email": "pubmo1789@gmail.com", "birthday": "01/01/1980", "link": "https://www.facebook.com/publiusmous.mousowsky",
+      "image_thumb": "https://graph.facebook.com/me/picture?access_token=CAAIoZC7o0ZCZCoBAHQAYGNxzERdht5IpJQXrjRPSltjV2EaqeXFXZC86ZBx2M4v44fotpW515XA0gGUChorZANaKnol0jP3oQ1RQQ4cnntqBe65KKbiV1dnZBdv5F9ZAZC6SZCNk2O1qmWBqeGKeairkZA2vt1vomsaZBvjfOBZACWmvi30tSlQKeynHHw0cG8tmqq0kZD",
+      "timezone": -5, "updated_time": "2013-11-09T05:21:11+0000", "id": "100002371601434"}'
+    state: null
+    user_permissions: []
+    username: publiusmousmousowsky
+    website_url: null
+  model: django_facebook.facebookcustomuser
+  pk: 2
+- fields: {author: 2, create_date: !!timestamp '2013-11-13 16:49:35.625318'}
+  model: MultipleChoice.multiplechoicesurvey
+  pk: 1
+- fields: {author: 2, create_date: !!timestamp '2013-11-13 16:50:54.539880'}
+  model: MultipleChoice.multiplechoicesurvey
+  pk: 2

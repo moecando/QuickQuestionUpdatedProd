@@ -1,0 +1,257 @@
+- fields: {codename: add_permission, content_type: 1, name: Can add permission}
+  model: auth.permission
+  pk: 1
+- fields: {codename: change_permission, content_type: 1, name: Can change permission}
+  model: auth.permission
+  pk: 2
+- fields: {codename: delete_permission, content_type: 1, name: Can delete permission}
+  model: auth.permission
+  pk: 3
+- fields: {codename: add_group, content_type: 2, name: Can add group}
+  model: auth.permission
+  pk: 4
+- fields: {codename: change_group, content_type: 2, name: Can change group}
+  model: auth.permission
+  pk: 5
+- fields: {codename: delete_group, content_type: 2, name: Can delete group}
+  model: auth.permission
+  pk: 6
+- fields: {codename: add_contenttype, content_type: 3, name: Can add content type}
+  model: auth.permission
+  pk: 7
+- fields: {codename: change_contenttype, content_type: 3, name: Can change content
+      type}
+  model: auth.permission
+  pk: 8
+- fields: {codename: delete_contenttype, content_type: 3, name: Can delete content
+      type}
+  model: auth.permission
+  pk: 9
+- fields: {codename: add_session, content_type: 4, name: Can add session}
+  model: auth.permission
+  pk: 10
+- fields: {codename: change_session, content_type: 4, name: Can change session}
+  model: auth.permission
+  pk: 11
+- fields: {codename: delete_session, content_type: 4, name: Can delete session}
+  model: auth.permission
+  pk: 12
+- fields: {codename: add_site, content_type: 5, name: Can add site}
+  model: auth.permission
+  pk: 13
+- fields: {codename: change_site, content_type: 5, name: Can change site}
+  model: auth.permission
+  pk: 14
+- fields: {codename: delete_site, content_type: 5, name: Can delete site}
+  model: auth.permission
+  pk: 15
+- fields: {codename: add_logentry, content_type: 6, name: Can add log entry}
+  model: auth.permission
+  pk: 16
+- fields: {codename: change_logentry, content_type: 6, name: Can change log entry}
+  model: auth.permission
+  pk: 17
+- fields: {codename: delete_logentry, content_type: 6, name: Can delete log entry}
+  model: auth.permission
+  pk: 18
+- fields: {codename: add_multiplechoicesurvey, content_type: 7, name: Can add multiple
+      choice survey}
+  model: auth.permission
+  pk: 19
+- fields: {codename: change_multiplechoicesurvey, content_type: 7, name: Can change
+      multiple choice survey}
+  model: auth.permission
+  pk: 20
+- fields: {codename: delete_multiplechoicesurvey, content_type: 7, name: Can delete
+      multiple choice survey}
+  model: auth.permission
+  pk: 21
+- fields: {codename: add_multiplechoicequestion, content_type: 8, name: Can add multiple
+      choice question}
+  model: auth.permission
+  pk: 22
+- fields: {codename: change_multiplechoicequestion, content_type: 8, name: Can change
+      multiple choice question}
+  model: auth.permission
+  pk: 23
+- fields: {codename: delete_multiplechoicequestion, content_type: 8, name: Can delete
+      multiple choice question}
+  model: auth.permission
+  pk: 24
+- fields: {codename: add_multiplechoiceansweritem, content_type: 9, name: Can add
+      multiple choice answer item}
+  model: auth.permission
+  pk: 25
+- fields: {codename: change_multiplechoiceansweritem, content_type: 9, name: Can change
+      multiple choice answer item}
+  model: auth.permission
+  pk: 26
+- fields: {codename: delete_multiplechoiceansweritem, content_type: 9, name: Can delete
+      multiple choice answer item}
+  model: auth.permission
+  pk: 27
+- fields: {codename: add_publishing, content_type: 10, name: Can add publishing}
+  model: auth.permission
+  pk: 28
+- fields: {codename: change_publishing, content_type: 10, name: Can change publishing}
+  model: auth.permission
+  pk: 29
+- fields: {codename: delete_publishing, content_type: 10, name: Can delete publishing}
+  model: auth.permission
+  pk: 30
+- fields: {codename: add_facebookpublishing, content_type: 11, name: Can add facebook
+      publishing}
+  model: auth.permission
+  pk: 31
+- fields: {codename: change_facebookpublishing, content_type: 11, name: Can change
+      facebook publishing}
+  model: auth.permission
+  pk: 32
+- fields: {codename: delete_facebookpublishing, content_type: 11, name: Can delete
+      facebook publishing}
+  model: auth.permission
+  pk: 33
+- fields: {codename: add_urlpublishing, content_type: 12, name: Can add url publishing}
+  model: auth.permission
+  pk: 34
+- fields: {codename: change_urlpublishing, content_type: 12, name: Can change url
+      publishing}
+  model: auth.permission
+  pk: 35
+- fields: {codename: delete_urlpublishing, content_type: 12, name: Can delete url
+      publishing}
+  model: auth.permission
+  pk: 36
+- fields: {codename: add_emailpublishing, content_type: 13, name: Can add email publishing}
+  model: auth.permission
+  pk: 37
+- fields: {codename: change_emailpublishing, content_type: 13, name: Can change email
+      publishing}
+  model: auth.permission
+  pk: 38
+- fields: {codename: delete_emailpublishing, content_type: 13, name: Can delete email
+      publishing}
+  model: auth.permission
+  pk: 39
+- fields: {codename: add_emaillist, content_type: 14, name: Can add email list}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_emaillist, content_type: 14, name: Can change email list}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_emaillist, content_type: 14, name: Can delete email list}
+  model: auth.permission
+  pk: 42
+- fields: {codename: add_emailcontact, content_type: 15, name: Can add email contact}
+  model: auth.permission
+  pk: 43
+- fields: {codename: change_emailcontact, content_type: 15, name: Can change email
+      contact}
+  model: auth.permission
+  pk: 44
+- fields: {codename: delete_emailcontact, content_type: 15, name: Can delete email
+      contact}
+  model: auth.permission
+  pk: 45
+- fields: {codename: add_multiplechoiceresponse, content_type: 16, name: Can add multiple
+      choice response}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_multiplechoiceresponse, content_type: 16, name: Can change
+      multiple choice response}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_multiplechoiceresponse, content_type: 16, name: Can delete
+      multiple choice response}
+  model: auth.permission
+  pk: 48
+- fields: {codename: add_multiplechoicepostedanswer, content_type: 17, name: Can add
+      multiple choice posted answer}
+  model: auth.permission
+  pk: 49
+- fields: {codename: change_multiplechoicepostedanswer, content_type: 17, name: Can
+      change multiple choice posted answer}
+  model: auth.permission
+  pk: 50
+- fields: {codename: delete_multiplechoicepostedanswer, content_type: 17, name: Can
+      delete multiple choice posted answer}
+  model: auth.permission
+  pk: 51
+- fields: {codename: add_userprofile, content_type: 18, name: Can add user profile}
+  model: auth.permission
+  pk: 52
+- fields: {codename: change_userprofile, content_type: 18, name: Can change user profile}
+  model: auth.permission
+  pk: 53
+- fields: {codename: delete_userprofile, content_type: 18, name: Can delete user profile}
+  model: auth.permission
+  pk: 54
+- fields: {codename: add_facebookuser, content_type: 19, name: Can add facebook user}
+  model: auth.permission
+  pk: 55
+- fields: {codename: change_facebookuser, content_type: 19, name: Can change facebook
+      user}
+  model: auth.permission
+  pk: 56
+- fields: {codename: delete_facebookuser, content_type: 19, name: Can delete facebook
+      user}
+  model: auth.permission
+  pk: 57
+- fields: {codename: add_facebooklike, content_type: 20, name: Can add facebook like}
+  model: auth.permission
+  pk: 58
+- fields: {codename: change_facebooklike, content_type: 20, name: Can change facebook
+      like}
+  model: auth.permission
+  pk: 59
+- fields: {codename: delete_facebooklike, content_type: 20, name: Can delete facebook
+      like}
+  model: auth.permission
+  pk: 60
+- fields: {codename: add_facebookprofile, content_type: 21, name: Can add facebook
+      profile}
+  model: auth.permission
+  pk: 61
+- fields: {codename: change_facebookprofile, content_type: 21, name: Can change facebook
+      profile}
+  model: auth.permission
+  pk: 62
+- fields: {codename: delete_facebookprofile, content_type: 21, name: Can delete facebook
+      profile}
+  model: auth.permission
+  pk: 63
+- fields: {codename: add_facebookcustomuser, content_type: 22, name: Can add user}
+  model: auth.permission
+  pk: 64
+- fields: {codename: change_facebookcustomuser, content_type: 22, name: Can change
+      user}
+  model: auth.permission
+  pk: 65
+- fields: {codename: delete_facebookcustomuser, content_type: 22, name: Can delete
+      user}
+  model: auth.permission
+  pk: 66
+- fields: {codename: add_opengraphshare, content_type: 23, name: Can add open graph
+      share}
+  model: auth.permission
+  pk: 67
+- fields: {codename: change_opengraphshare, content_type: 23, name: Can change open
+      graph share}
+  model: auth.permission
+  pk: 68
+- fields: {codename: delete_opengraphshare, content_type: 23, name: Can delete open
+      graph share}
+  model: auth.permission
+  pk: 69
+- fields: {codename: add_facebookinvite, content_type: 24, name: Can add facebook
+      invite}
+  model: auth.permission
+  pk: 70
+- fields: {codename: change_facebookinvite, content_type: 24, name: Can change facebook
+      invite}
+  model: auth.permission
+  pk: 71
+- fields: {codename: delete_facebookinvite, content_type: 24, name: Can delete facebook
+      invite}
+  model: auth.permission
+  pk: 72

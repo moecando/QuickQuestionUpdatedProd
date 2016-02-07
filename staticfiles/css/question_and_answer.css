@@ -1,0 +1,232 @@
+
+
+/* for now do for all div's, lazy solution */
+	div {
+	
+			word-wrap:break-word;
+			overflow:hidden;
+	}
+	
+	
+	#question_wrapper textarea {
+	font-style:italic;
+	}
+	
+	form  textarea, form input[type=text]{
+		background-color:white;
+		border-radius: 4px;
+		font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+		border-color:darkgray;
+		border-width:0px;
+		
+	}
+	
+	form  textarea:focus, form input[type=text]:focus {
+		border-color: lightgray;
+		//border-width:1px;
+		border-style:solid;
+	}
+	
+	form  textarea{ width: 75%;
+				height: 75px;
+				font-size:1em;
+				resize:none;
+				
+	}
+	
+	form input[type=text] {
+		width: 75%;
+				
+				font-size:1em;
+				resize:none;
+				
+	}
+	.add-row, .delete-row {
+		font-size:0.95em;
+		font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+		margin-top:10px;
+	}
+	
+	
+<!-- 	form input { -->
+		
+<!-- 				font-size:1em; -->
+<!-- 				resize:none; -->
+<!-- 	} -->
+	
+	#status_wrapper, #question_wrapper, #answer_wrapper {
+		
+		margin-left: 50px;
+		
+		padding-top:50px;
+		
+	}
+	
+	#question_wrapper {
+		width:500px;
+		padding-top:0px;
+		
+	}
+	
+	
+	/*asdfadf*/
+	#question_wrapper .title_style
+
+{
+	padding-bottom:5px;
+	padding-bottom:5px;
+}
+	
+	#answer_wrapper {
+		float:left;
+		max-width:500px;
+	}
+	
+	#status_wrapper {
+		padding-top:20px;
+		max-width:400px;
+	}
+	
+	#QuestionBox {
+		padding-left: 5px;
+	}
+	
+	#answer_wrapper{
+		padding-top:50px;
+		
+	}
+	
+	
+	
+
+	.answer_title { margin-bottom:15px;}
+	
+	
+
+	#publish_btn
+	{
+		padding-left:15px;
+		padding-right:15px;
+	}
+	
+	
+	
+	#EditWrapper {
+		margin:0px auto;
+	}
+	
+	#QuestionBox
+	{
+		border-style: dotted;
+border-width: 1px;
+padding-top: 5px;
+
+border-color: navy;
+padding:15px;
+
+/*height: 75px;*/
+	}
+	
+	.ans_box {
+	
+	border-color: navy;
+border-style: dashed;
+border-width: 1px;
+padding-bottom: 5px;
+padding-top:5px;
+margin-bottom: 3px;
+min-width:200px;
+	}
+	
+	
+	.ans_span 
+	{
+		padding-left:25px;
+		padding-right: 25px;
+	}
+	
+	.votes_box
+	{
+		padding-left: 15px;
+		font-style:italic;
+		font-size:0.95em;
+		color: #4045b6;
+		color: gray;
+	}
+	
+	.total_box
+	{
+		padding-top:20px;
+	}
+	#banner_msg
+	{
+		width:500px;
+		
+		margin:0px auto; /* center it */
+		margin-top:25px;
+		font-size:0.98em;
+		font-style:italic;
+		font-weight:bold;
+		
+	}
+
+#status_box, #published_msg, #not_published_msg, #published_label, #status_label{
+	display:inline;
+	
+
+}
+
+#status_wrapper 
+{
+	margin-top:10px;
+}
+
+#published_label {color:gray;
+					font-style:italic;
+					font-size:0.95em;
+				
+					}
+
+#answer_sub_wrapper {
+	float:left;
+	padding-top:15px;
+}
+
+#results_wrapper {
+ 	/*margin-top:-40px;*/
+/* 	margin-left:-30px; */
+	float:left;	
+}
+
+#id_orders_table td
+{
+	padding-top: 3px;
+	max-width:400px;
+}
+
+#button_bar {
+	clear:both;
+	margin-left:50px;
+}
+
+.dialog-modal {
+	padding: 0px;
+	margin:0px;
+	font-size:0.90em;
+	display:none;
+}
+
+.results_table, #results_wrapper {
+	float:left;
+}
+
+{% if is_results_page %}
+	#question_wrapper {
+		padding-top:75px;
+	}
+{% endif %}
+
+.darker_gray
+{
+	color:gray;
+}

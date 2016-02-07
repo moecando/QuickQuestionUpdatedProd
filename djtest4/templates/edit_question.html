@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+
+{% block extrahead %}
+
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $('#id_orders_table tbody tr').formset({
+            // For inline formsets, be sure to set the prefix, as the default prefix
+            // ('form') isn't correct.
+            // Django appears to generate the prefix from the lowercase plural
+            // name of the related model, with camel-case converted to underscores.
+            //prefix: 'multiplechoiceansweritem_set'
+            prefix: "Answer"
+        })
+    });
+    $(function(){
+    	$('input').not('input[type=submit]').keydown( function(e) {
+            var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+            if(key == 13) {
+                e.preventDefault();
+                var inputs = $(this).closest('form').find(':input:visible');
+                inputs.eq( inputs.index(this)+ 1 ).focus();
+            }
+        });
+    });
+    
+</script>
+<style type="text/css">
+    .delete-row {
+        margin-left:5px;
+    }
+</style>
+{% endblock %}
+
+
+{% block css_code %} 
+
+
+{{super}}
+	
+	
+	#question_wrapper textarea {
+	font-style:italic;
+	}
+	
+	
+	.add-row, .delete-row {
+		font-size:0.95em;
+		font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+		margin-top:10px;
+	}
+	
+
+	
+	
+<!-- 	form input { -->
+		
+<!-- 				font-size:1em; -->
+<!-- 				resize:none; -->
+<!-- 	} -->
+	
+	#question_wrapper, #answer_wrapper {
+		width:500px;
+		margin-left: 50px;
+		
+		padding-top:50px;
+	}
+	
+	#answer_wrapper, #results_wrapper {
+		padding-top:50px;
+		/*float:left;*/
+	}
+	
+	#answer_wrapper input[type=text] {
+	
+		width:300px;
+	}
+
+	
+
+	.answer_title { margin-bottom:15px; display:inline;}
+	
+	
+	
+	.cancel_btn, .submit_btn, .delete_btn
+	{
+		margin-top: 30px;
+		background-color: 0e1d8f;
+		/*display:inline-block;*/
+		color: #edebf3;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 15px;
+		border-width: 0px;
+		padding: 5px 20px;
+		text-decoration:none;
+		border-radius:3px;
+		border-style:none;
+	}
+	
+	
+
+{% endblock%}
+
+{% block js_libs %}
+{{super}}
+
+
+{% endblock %}
+
+{% block main_content %}
+
+        {% comment %}
+        <!-- You can use a form template with a formset containing data. -->
+        <!--table style="display:none">
+            <tbody>
+                {% with formset.empty_form as form %}
+                <tr id="id_empty_form">
+                    <td>
+                        {% for fld in form.hidden_fields %}{{ fld }}{% endfor %}
+                        {% if form.instance.pk %}{{ form.DELETE }}{% endif %}
+                        {{ form.product }}
+                    </td>
+                    <td>{{ form.quantity }}</td>
+                </tr>
+                {% endwith %}
+            </tbody>
+        </table-->
+        {% endcomment %}
+        
+        <form method="post" action="">
+        {% csrf_token %}
+        
+        <div id="question_wrapper">
+        
+        
+         
+{%for boundfield in form %} 
+{{boundfield.errors}}
+<h4><p>{{boundfield.help_text}} <span class="advisory_text">(Note: keep questions for Facebook very short (2 lines) or Facebook will abbreviate them).</span></p></h4>
+<p class="{{boundfield.css_classes}}">{{boundfield}}</p>
+
+{%endfor%}  
+            
+            </div>
+            
+        <div id="answer_wrapper">
+        {{formset.non_form_errors}}
+            <h4 class="answer_title" >Possible answers:</h4><span class="advisory_text"> (Please limit to 80 characters.)</span><br/><br/>
+            <table id="id_orders_table" border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                  
+                </thead>
+                <tbody>
+                
+                    {% for form in formset.forms %}
+                    <tr id="{{ form.prefix }}-row">
+                        <td>
+                            {% for fld in form.hidden_fields %}{{ fld }}{% endfor %}
+                            {% if form.instance.pk %}{{ form.DELETE }}{% endif %}
+                            {{ form.ans_text }}
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>
+                {{ formset.management_form }}
+                <input class="submit_btn button" type="submit" text="Save" value="  Save  " />
+                
+                <a class="cancel_btn button" href=" {% if add_or_edit == 'edit' %} 
+                
+                {% url 'ShowQuestionDetails' question.slug %}
+                {% else %}
+                {% url 'ShowQuestionsList' %}
+                {% endif %}
+                
+                ">  Cancel  </a>
+                
+            </p>
+            </div>
+      
+        
+        </div>
+        
+        </form>
+	<div id="dialog-modal-delete-error" style="display:none" class="dialog-modal" title="Oops, try again.">
+	<p>You must have at least two answer choices.</p>
+	</div>        
+
+{% endblock %}

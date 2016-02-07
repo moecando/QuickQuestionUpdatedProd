@@ -1,0 +1,8 @@
+<div id="status_box"><span id="published_label">{% if is_published %} 
+        													{% for p in publishing_list%}
+        													
+        													Published via {{ p.pub_type }} {{p.publish_date | timesince}} ago{%if not forloop.last %}, {%endif%}
+        																	
+        													{% endfor %}
+        													
+        													 <br/> {% else %} Not Published.<br/>  {% endif %}</span></div>  

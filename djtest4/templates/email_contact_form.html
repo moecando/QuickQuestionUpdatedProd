@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block css_code %}
+{{super}}
+
+#main_wrapper {
+	padding-left:50px;
+}
+
+label {
+		color:navy;
+		display:block;
+}
+
+#email_contact_form input[name=user_email] {
+	width:50%;
+}
+
+input[type=text], textarea
+{
+	font-family:"times-new-roman", serif;
+}
+
+#button_bar
+{
+
+}
+
+
+{% endblock %}
+
+
+{% block main_content %}
+
+<div id="EmailContactForm_wrapper" class="top_level_wrapper">
+
+<form id="email_contact_form" action="" method="POST">
+{% csrf_token %}
+{%for boundfield in form %} 
+{{boundfield.errors}}
+<h4><p>{{boundfield.label}} <span class="advisory_text">{% if boundfield.name == 'list_of_email_addr' %} Please type one per line or separate them with commas or semicolons. {%endif %}</span></p></h4>
+<p class="{{boundfield.css_classes}}">{{boundfield}}</p>
+
+{%endfor%}  
+<br/>
+<div id="button_bar">
+<input class="button" type="submit" value="  Send Email  " class="button"></input>
+<a class="button" href="{% url 'ShowQuestionDetails' question.slug %}">  Cancel  </a>
+</form>
+</div>
+
+</div>
+{% endblock %}

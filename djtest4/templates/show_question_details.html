@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% block js_libs %}
+
+{{super.block}}
+
+ {% include "chart_js_sub_template.html" %}
+
+
+<script type="text/javascript">
+
+
+
+$(function(){
+	  drawChart();
+})
+
+
+$(function(){
+	$('#delete_lnk').click(function(event){
+		 
+		event.preventDefault();
+		
+		$( "#dialog-modal" ).dialog({
+		    resizable: false,
+		    height:200,
+		    width: 400,
+		    modal: true,
+		    buttons: {
+		      "Delete": function() {
+		    	 
+		  		$('#delete_btn').click();
+		    	  $( this ).dialog( "close" );
+		      },
+		      Cancel: function() {
+		        $( this ).dialog( "close" );
+		      }
+		    }
+		  });
+		 
+	});
+	
+	$('#share_results_lnk').click(function(event){
+		 
+		
+		event.preventDefault();
+		
+		$( "#dialog-modal-share_results" ).dialog({
+		    resizable: false,
+		    height:175,
+		    width:500,
+		    modal: true,
+		    buttons: {
+		      "Post to Facebook": function() {
+		    	 
+		  		$('#share_results_facebook_btn').click();
+		    	  $( this ).dialog( "close" );
+		      },
+		      
+		      "Share via Email": function() {
+			    	 
+			  		window.location.href = "{% url 'ShowResultsEmailForm' question.slug %}";
+			    	  $( this ).dialog( "close" );
+			      },
+		      Cancel: function() {
+		        $( this ).dialog( "close" );
+		      }
+		    }
+		  });
+		 
+	});
+	
+	
+});
+
+
+$(function(){
+	$('#publish_lnk').click(function(event){
+		 
+		event.preventDefault();
+		
+		$( "#dialog-facebook-confirm" ).dialog({
+		    resizable: false,
+		    height:200,
+		    width:400,
+		    modal: true,
+		    buttons: {
+		      "Post to Facebook": function() {
+		    	 
+		  		$('#publish_btn').click();
+		    	  $( this ).dialog( "close" );
+		      },
+		      Cancel: function() {
+		        $( this ).dialog( "close" );
+		      }
+		    }
+		  });
+		 
+	});
+	
+});
+
+
+// $(function(){
+// 	$('#email_lnk').click(function(event){
+		 
+// 		event.preventDefault();
+		
+// 		$( "#dialog-share-via-email" ).dialog({
+// 		    resizable: false,
+// 		    height:200,
+// 		    width:400,
+// 		    modal: true,
+// 		    buttons: {
+// 		      "Send": function() {
+		    	 
+// 		  		$('#email_btn').click();
+// 		    	  $( this ).dialog( "close" );
+// 		      },
+// 		      Cancel: function() {
+// 		        $( this ).dialog( "close" );
+// 		      }
+// 		    }
+// 		  });
+		 
+// 	});
+	
+// });
+
+
+
+$(function() {
+  
+});
+
+
+</script>
+
+{% include 'include_jquery_ui.html' %}
+
+{% endblock %}
+
+{% block extrahead %} 
+{{super}}
+<link rel="stylesheet" href="/static/css/question_and_answer.css" type="text/css"/>
+<link rel="stylesheet" href="/static/css/show_question_detail.css" type="text/css"/>
+ {% endblock%}
+
+
+{% block main_content %}
+
+<div id="dialog-modal" class="dialog-modal" title="Please confirm:" style="display:none">
+  <p style="">Are you sure you want to permanently delete this question?</p>
+</div>
+
+
+<div id="dialog-facebook-confirm" class="dialog-modal" title="Please confirm:" style="display:none">
+  <p style="">Are you sure you want to post this question to Facebook?</p>
+</div>
+
+
+
+
+
+
+
+        {% comment %}
+        <!-- You can use a form template with a formset containing data. -->
+        <!--table style="display:none">
+            <tbody>
+                {% with formset.empty_form as form %}
+                <tr id="id_empty_form">
+                    <td>
+                        {% for fld in form.hidden_fields %}{{ fld }}{% endfor %}
+                        {% if form.instance.pk %}{{ form.DELETE }}{% endif %}
+                        {{ form.product }}
+                    </td>
+                    <td>{{ form.quantity }}</td>
+                </tr>
+                {% endwith %}
+            </tbody>
+        </table-->
+        {% endcomment %}
+        
+        
+        
+        {% if not is_results_page %}
+        <div id="banner_msg" >
+        {% if just_published_on_FB %}
+        Your question was successfully posted on <a href="http://www.facebook.com" >Facebook</a>.
+        {% endif %}
+        
+        {% if just_published_via_email %}
+        Your question was shared successfully via email.
+        {% endif %}
+        
+        {% if just_published_results_via_email %}
+        Your results were shared successfully via email.
+        {% endif %}
+        
+        {% if just_published_results_on_FB %}
+        Your results were shared successfully on <a href="http://www.facebook.com" >Facebook</a>.
+        {% endif %}
+        
+        {% if fb_post_error %}
+        You did not authorize us to post to Facebook for you, or there was an unknown error. Try again later.
+        {% endif %}
+        
+        </div>
+        {%endif %}
+        
+      
+     
+        
+ 
+        
+        <div id="question_wrapper">
+        
+        
+ 
+<div class="title_style"><p>{% if not is_results_page %}Your {% endif %}Question:</p></div>
+<div id="QuestionBox">{{question.qtext}}</div>
+
+
+            
+            </div>
+            
+              {% if not is_results_page %}
+               <div id="status_wrapper">
+        <div id="status_label" class="title_style">Status:</div>
+        {% include 'question_activity.html' %}      
+        </div>
+        	{% endif %}
+        {% include "answer_and_chart_sub_template.html" %}	
+       
+       		{% if not is_results_page %}
+			<div id="button_bar">
+  		    
+  		    {% if not is_published %}         
+            <a id="edit_lnk" class="button_lnk" href="{% url 'EditQuestion' question.slug %}">Edit </a>   
+            {% endif %}
+            <a id="publish_lnk" href="#" class="button_lnk"> Post To Facebook  </a>
+            <a id="email_lnk" href="{% url 'ShowEmailForm' question.slug %}" class="button_lnk" >Share via Email </a>
+            {% if is_published %}
+            <a id="share_results_lnk" href="" class="button_lnk" >Send Results</a>
+            {% endif %}
+            <a id="delete_lnk" href="#" class= "button_lnk" href="" >Delete </a>   
+  		</div>
+			{% endif %}
+			
+{% endblock %}

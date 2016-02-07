@@ -1,0 +1,13 @@
+{{current_user.first_name}} {{current_user.last_name}} says,
+
+{{email_msg_body}}
+
+{% autoescape off %} Here are the results for the question I asked "{{theQuestion.qtext}}"
+
+{% for entry in vote_tally_with_pct%} {{entry.ans_text}}: {{entry.vote_count}} {% if entry.vote_count == 1 %} vote {% else %} votes {% endif %} ({{entry.vote_pct}}%) 
+{% endfor %}
+
+There were {{total_votes}} {% if total_votes == 1 %} vote {% else %} votes {% endif %} total.
+For more info, see {{domain_with_port}}{% url 'ResultsPageForAnonymousUsers'  theQuestion.slug %}
+
+{% endautoescape %}

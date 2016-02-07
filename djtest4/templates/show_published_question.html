@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<h4>Question:</h4>
+
+{{question.qtext}}
+
+<br/>
+<br/>
+<div id="ans_list">
+{% for ans in question.multiplechoiceansweritem_set.all %}
+
+	 <a href="{% url 'RespondToQuestion' question.slug ans.slug %}">{{ans.ans_text}}</a> <br/>
+
+{% endfor %}
+</div>
+
+
+
+{% endblock %}

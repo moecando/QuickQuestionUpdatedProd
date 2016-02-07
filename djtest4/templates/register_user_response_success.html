@@ -1,0 +1,136 @@
+
+{% extends 'base.html' %}
+
+
+{% block js_libs %}
+{{super}}
+
+{% include "chart_js_sub_template.html" %}
+
+
+
+<script type="text/javascript">
+function LoadResultsChart()
+{
+	/* now that we've voted via Ajax in the other function below, let's load the results */
+	
+	$.ajax("{% url 'ajax_ShowAnswersAndResults' theQuestion.slug %}", { 'cache' : false }).done(function(data) {
+		
+		/* insert the html fragment we got */
+		$('#results_container').after(data);
+		
+		
+		/* draw the google chart */
+		drawChart();
+	});
+}
+
+function my_js_callback(data){
+    alert(data.message);
+}
+
+$(function(){
+	$.ajax("{% url 'RegisterVote' theQuestion.slug theAnswer.slug %}", { 'cache' : false }).done(function() {
+   	console.log("voted.");
+   	
+   	LoadResultsChart();	
+  })
+  .fail(function() {
+    console.log("error voting.")
+  })
+});
+
+
+</script>
+
+
+{% endblock %}
+
+{% block extrahead %}
+{{super}}
+<link rel="stylesheet" href="/static/css/question_and_answer.css" type="text/css"/>
+{% endblock %}
+
+{% block css_code %}
+{{super}}
+
+
+
+#inner_content {
+	padding-left:40px;
+	padding-top:50px;
+		width:100%;
+}
+
+.vote_message_box
+{
+	width:500px;
+	font-size:1.1em;
+	padding-left:200px;
+	line-height:2em;
+}
+
+
+.answer_span
+{
+	color:#0e1d8f;
+	font-size:1.3em;
+	font-weight:bold;
+}
+
+.q_span {
+	color:darkred;
+	font-size:1.3em;
+}
+
+.small_link {
+	font-size:0.95em;
+}
+
+#AskYourOwn
+{
+	clear:both;
+	padding-left:200px;
+}
+
+#thanks
+{	
+
+}
+
+#answer_wrapper
+{
+	padding-left:200px;
+	margin-left:0px;
+	padding-top:25px;	
+}
+
+#results_wrapper
+{
+	clear:both;
+	padding-left:200px;
+}
+
+{% endblock %}
+
+{% block main_content %}
+<div id="inner_content">
+
+<div class="vote_message_box">
+<div id="thanks"> <strong>Thanks for answering!</strong><br/><br/></div>
+<div id="youanswered"> You answered <span class="answer_span">"{{theAnswer.ans_text}}" </span> to the question <span class="q_span">"{{theQuestion.qtext}}"</span></div>
+<br/>
+</div>
+<div id="results_container"></div>
+
+
+<br/>
+<div id="AskYourOwn" class="small_link">Ask your own <a  href="{% url 'home' %}"  >quick question</a> via Facebook or email.</div>
+
+</div>
+
+
+
+
+
+{% endblock %}

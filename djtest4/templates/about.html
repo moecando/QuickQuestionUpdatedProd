@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block css_code %}
+
+#inner_wrapper {
+	padding-left:40px;
+	padding-top:50px;
+	line-height:1.6em;
+	font-family: "times-new-roman", serif;
+	font-size:1.1em;
+}
+
+.emphasis {
+	font-weight:bold;
+	/*font-style:italic;*/
+	/*font-family:Arial;*/
+}
+
+{% endblock %}
+
+{% block main_content %}
+
+
+
+<div id="inner_wrapper">
+<span style="font-style:italic"> Quick Question</span> wants to help you ask single questions quickly on Facebook and through email.<br/> <span class="emphasis">Your users, the people who respond, don't need to fill out a survey. They just click a link as they would do to open any web page.</span>
+
+<br><br/>Quick Question was created by Moshe Adesnik using Python and Django. He can be reached at <a href="mailto:moecando@gmail.com">moecando@gmail.com</a>.
+
+</div>
+
+
+{% endblock %}

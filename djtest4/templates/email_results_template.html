@@ -1,0 +1,44 @@
+
+<br/>
+<span style="padding-left:30px;  font-size:1.1em;"> <br/><br/>You have a received survey results for a quick question from {{current_user.first_name}} {{current_user.last_name}}.
+<br/><br/></span>
+
+
+
+<table style="width:100%">
+<tr>
+<td style="width:10%"/>
+<td colspan=3>
+<span style="font-style:italic; font-weight:bold;">{{current_user.first_name}} says,<br/><br/> </span>
+<span> {{email_msg_body}}<br/> </span>
+</td>
+<td style="width:18%"/>
+</tr>
+</table>
+
+
+<table style="width:100%">
+<tr>
+<td style="width:10%"/>
+<td colspan=3 >
+<br/><strong>The question was:</strong><br/><br/>
+<strong><h3 style="color:darkred">{{theQuestion.qtext}}</h3></strong>
+<br/>
+
+Results:<br/>
+<br/>
+<table>
+
+{% for entry in vote_tally_with_pct%} <tr> <td><span style="color:navy; font-weight:bold;font-size:1.2em"> {{entry.ans_text}}</span> </td><td> <span style="font-size:1.2em; color:black; font-weight:bold; font-style:italic; padding-left:15px;" >{{entry.vote_count}} {% if entry.vote_count == 1 %} vote {% else %} votes {% endif %}</span> <span style="font-style:normal">({{entry.vote_pct}}%)</span><br/></td> 
+
+{% endfor %}
+</table>
+<br/><br/>
+
+<span style="font-style:italic; font-weight:bold; font-size:1em;">There were {{total_votes}} {% if total_votes == 1 %} vote {% else %} votes {% endif %} total.<br/><br/></span>
+For more info, click <a href="{{domain_with_port}}{% url 'ResultsPageForAnonymousUsers'  theQuestion.slug %}">here</a>.
+
+</td>
+<td style="width:18%"/>
+</tr>
+</table>

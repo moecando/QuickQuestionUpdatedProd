@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block css_code %}
+
+#main_wrapper li {
+	
+	
+		padding-top:20px;
+		border-bottom-style: dotted;
+		border-bottom-color: lightgray;
+		padding-bottom: 5px;
+		list-style-type: none;
+		font-size:1.1em;
+	}
+	
+#main_wrapper li a {
+	text-decoration:none;
+}
+
+#main_wrapper li a:hover {
+	text-decoration:underline;
+}
+
+
+
+
+#main_wrapper {
+	color:  #0e1d8f;
+}
+
+
+#addnew_btn, #publish_btn{
+		margin-top: 30px;
+		background-color: 0e1d8f;
+		
+		color: #edebf3;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 15px;
+		border-width: 1px;
+		padding: 5px 20px;
+		text-decoration:none;
+		border-radius:3px;
+		display:inline;
+		margin-left:10px;
+		
+	}
+	
+h4 { display:inline;
+	
+
+}
+
+#title_element
+{
+	padding-bottom:50px !important;
+	border-width:0px;
+	font-size:1em !important;
+}
+
+#main_wrapper ul
+{
+	padding-top:25px;
+}
+
+#published_label {color:gray;
+					font-style:italic;
+					font-size:0.85em;
+				
+					}
+
+.question_text
+{
+	color: #a76300;
+	/*color:#2988ad;*/
+	color:#2863cc;
+}
+
+#banner_msg
+	{
+		width:500px;
+		
+		margin:0px auto; /* center it */
+		margin-top:25px;
+		font-size:0.98em;
+		font-style:italic;
+		font-weight:bold;
+		color:black;
+		
+	}
+
+#empty_msg {
+	padding-top:20px;
+	font-style:italic;
+	color:black;
+}
+
+#status_box {
+	padding-top:4px;
+}
+{% endblock %}
+{% block main_content %}
+
+{% if just_deleted_question %}
+        <div id="banner_msg" >Your question was successfully deleted.</div>
+        {% endif %}
+
+<ul>
+<li id="title_element" ><h4> Your Questions:</h4> <a id="addnew_btn" href="{% url 'AddQuestion' %}">Add Question</a>
+</li>
+{% for q in all_questions %}
+	<li ><a class="question_text" href="{% url 'ShowQuestionDetails' q.slug %}">{{q.qtext}}</a>
+	{% include 'question_activity.html'  with publishing_list=q.pub_list is_published=q.is_published %}
+	
+	</li> 
+
+{% empty %}
+	<div id="empty_msg" >You have no questions yet.<br/><br/> Please click 'Add Question' to create a new question. </div>
+
+{% endfor %}
+
+</ul>
+
+{% endblock %}
